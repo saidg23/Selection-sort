@@ -5,18 +5,16 @@
 
 using namespace std;
 
+const int arrayLength = 28;
+
 int getRandomNumber(int min, int max)
 {
     static const double fraction = 1.0 / (static_cast<double>(RAND_MAX) + 1.0);
     return static_cast<int>(rand() * fraction * (max - min + 1) + min);
 }
 
-int main()
+void getArray(int array[arrayLength])
 {
-    srand(time(0));
-    int arrayLength = 28;
-
-    int array[arrayLength] {0};
     for(int count = 0; count <= arrayLength-1;)
     {
         int placeholder = getRandomNumber(1, arrayLength);
@@ -37,6 +35,14 @@ int main()
         }
 
     }
+}
+
+int main()
+{
+    srand(time(0));
+
+    int array[arrayLength] {0};
+    getArray(array);
 
     for(int pos = 0; pos <= arrayLength-2; ++pos)
     {
@@ -65,7 +71,7 @@ int main()
         cout << '\n';
         }
 
-        Sleep(200);
+        Sleep(150);
 
         if(pos < arrayLength-2)
             system("cls");
