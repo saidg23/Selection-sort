@@ -56,22 +56,30 @@ int main()
 
         swap(array[smallestPos], array[pos]);
 
-        for(int pos = 0; pos <= arrayLength-1; ++pos)
+        for(int y = arrayLength+1; y > 0; --y)
         {
-            if(array[pos] < 10)
-                cout << array[pos] << "  ";
-            else
-                cout << array[pos] << " ";
-
-            for(int count = array[pos]; count >= 1; --count)
+            for(int repeat = 2; repeat > 0; --repeat)
             {
-                cout << "#";
+                for(int x = 0; x < arrayLength; ++x)
+                {
+                    if(array[x] >= y)
+                        cout << "|!|  ";
+                    else
+                        cout << "     ";
+                }
+                cout << '\n';
             }
-
-        cout << '\n';
         }
 
-        Sleep(150);
+        for(int index = 0; index < arrayLength; ++index)
+        {
+            if(array[index] < 10)
+                cout << array[index] << "    ";
+            else
+                cout << array[index] << "   ";
+        }
+
+        Sleep(100);
 
         if(pos < arrayLength-2)
             system("cls");
